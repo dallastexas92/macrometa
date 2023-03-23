@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macrometa Latency Checker</title>
+    <script>
+        async function checkLatency() {
+            const response = await fetch('http://localhost:5001/latency');
+            const data = await response.json();
+            const latency = data.latency;
+            document.getElementById('latency').innerText = `Latency: ${latency} ms`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Macrometa Latency Checker</h1>
+    <button onclick="checkLatency()">Check Latency</button>
+    <p id="latency"></p>
+</body>
+</html>
